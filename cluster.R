@@ -13,9 +13,9 @@ plot(pc_data3,type='l',main = 'Varianza de las primeras Componentes Principales'
 
 set.seed(7)
 data3_cluster<-kmeans(pc_data3$x[,1:2], 3, nstart = 20)
-
+data2$cluster<-data3_cluster$cluster
 
 data3_cluster$cluster <- as.factor(data3_cluster$cluster)
 pc_data3$x<-data.frame(pc_data3$x)
 ggplot(pc_data3$x, aes(PC1, PC2, color = data3_cluster$cluster)) + geom_point()
-#
+#Estecluster se hace es sobre las condiciones en que se emitio el prestamo.
