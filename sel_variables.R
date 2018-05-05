@@ -5,7 +5,7 @@ data<-read_excel('Cartera_Consumo.xlsx')
 
 data2<-data.table(data$cedula)
 
-##la variable a predecir es default, así que primero hagamosla
+##la variable a predecir es default, as? que primero hagamosla
 ##dicotomica
 
 data2$default<-as.numeric(data$default=='Bueno')
@@ -21,10 +21,8 @@ table_cuota<-table(data2$default,data$cuota)
 table_garantia<-table(data2$default,data$garantia)
 table_formpag<-table(data2$default,data$formapag)
 table_edad<-table(data2$default,data$edad)
-table_ocup<-table(data2$default,data$ocupació)
+table_ocup<-table(data2$default,data$ocupaciÃ³)
 table_educ<-table(data2$default,data$niveledu)
-table_ing<-table(data2$default,data$ingtot)
-table_egr<-table(data2$default,data$egrtot)
 table_est<-table(data2$default,data$estrato)
 table_civil<-table(data2$default,data$estadoci)
 table_sex<-table(data2$default,data$sexo)
@@ -41,16 +39,16 @@ summary(table_formpag)
 summary(table_edad)
 summary(table_ocup)
 summary(table_educ)
-summary(table_ing)
-summary(table_egr)
 summary(table_est)
 summary(table_civil)
 summary(table_sex)
 summary(table_tipocont)
 
+
+
 #Puesto que chi-cuadrado es una  prueba de hipotesis, nuestra 
 #hipotesis nula sera que ambas variables son dependientes
-#(no son independientes). Así pues,con un p menor a 0.05 se
+#(no son independientes). As? pues,con un p menor a 0.05 se
 #rechaza la hipotesis con una significancia del 5%.
 
 
@@ -63,8 +61,10 @@ data2$tasa<-data$tasa
 data2$cuota<-data$cuota
 data2$formpag<-data$formapag
 data2$edad<-data$edad
-data2$ocup<-data$ocupació
+data2$ocup<-data$ocupaciÃ³
 data2$educ<-data$niveledu
 data2$civil<-data$estadoci
 data2$sex<-data$sexo
 data2$tipocont<-data$tipocont
+data2$ingnet<-(data$ingtot)-(data$egrtot) #esta variable representa el ingreso
+#neto del cliente, es decir: delo que dispone despues de cubrir sus "obligaciones"
